@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expérimentation Contrat d'Engagement - Information partagée sur les risques de sanction</title>
+    
+    <!-- Google tag (gtag.js) avec détection de bots -->
+    <script>
+      function isBot() {
+        const botPattern = /(bot|crawler|spider|crawling|slurp|scraper|headless)/i;
+        return (
+          navigator.webdriver ||
+          botPattern.test(navigator.userAgent) ||
+          !navigator.languages ||
+          navigator.plugins.length === 0
+        );
+      }
+      
+      if (!isBot()) {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-NSZDJXE8G0';
+        document.head.appendChild(script);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NSZDJXE8G0');
+      }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #1e3a8a;
+            text-align: center;
+            border-bottom: 3px solid #1e3a8a;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #1e40af;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            padding: 12px 15px;
+            border-left: 4px solid #1e40af;
+            margin: 25px 0 15px 0;
+        }
+        
+        h3 {
+            color: #1f2937;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        
+        .highlight-box {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .info-box {
+            background: #e0f2fe;
+            border: 1px solid #0ea5e9;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .faq-section {
+            background: #f1f5f9;
+            border-left: 4px solid #64748b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+        
+        .faq-answer {
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .script-box {
+            background: #f0fdf4;
+            border: 2px solid #22c55e;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .script-box h3 {
+            color: #166534;
+            margin-top: 0;
+        }
+        
+        .warning-box {
+            background: #fef2f2;
+            border: 1px solid #ef4444;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .contact-info {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #e5e7eb;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .tab {
+            background: #f8f9fa;
+            border: 1px solid #e5e7eb;
+            border-bottom: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .tab:hover {
+            background: #e5e7eb;
+        }
+
+        .tab.active {
+            background: white;
+            color: #1e40af;
+            border-color: #1e40af;
+            border-bottom: 2px solid white;
+            margin-bottom: -2px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                border-radius: 0;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            
+            .tab.active {
+                border-bottom: 1px solid #1e40af;
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Expérimentation Contrat d'Engagement</h1>
+        <div class="subtitle">Information partagée sur les risques de sanction</div>
+        <div class="subtitle">Guide à destination des conseiller(e)s</div>
+
+        <!-- Navigation par onglets -->
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('contexte')">Contexte & Objectifs</div>
+            <div class="tab" onclick="showTab('faq1')">FAQ Générale</div>
+            <div class="tab" onclick="showTab('consignes')">Consignes & Script</div>
+            <div class="tab" onclick="showTab('faq2')">FAQ Pratique</div>
+        </div>
+
+        <!-- Contenu des onglets -->
+        <div id="contexte" class="tab-content active">
+            <h2>Contexte</h2>
+            <p>Votre agence participe à une expérimentation au cœur de l'évolution de l'accompagnement des demandeurs d'emploi.</p>
+            <p>Dans le cadre de l'introduction du contrat d'engagement, certaines agences France Travail ont été sélectionnées pour tester différentes modalités de mise en œuvre de ce contrat et mieux comprendre l'impact de la formalisation des engagements du demandeur d'emploi et d'une meilleure connaissance des risques de sanction. Votre agence fait partie de celles qui ont été retenues pour cette expérimentation.</p>
+
+            <h2>Objectif de l'expérimentation</h2>
+            <p>L'objectif de cette expérimentation est de mesurer l'effet d'une information claire et partagée sur le contrôle et le risque de sanction en cas de non-respect des engagements prévus par le contrat sur l'intensité et la nature des démarches de recherche, ainsi que sur le retour à l'emploi des publics accompagnés par France Travail.</p>
+            <p>A la suite de la lecture du contrat d'engagement avec le demandeur d'emploi et avant sa signature, vous devez consacrer un temps spécifique à l'explication des risques de sanction en cas de manquement aux engagements prévus par le contrat. (Voir rubrique Consignes pour plus de détails).</p>
+
+            <h2>Cadre et périmètre de l'expérimentation</h2>
+            <div class="highlight-box">
+                <p><strong>Vous consacrerez du temps à l'explication du contrôle de la recherche d'emploi et des risques de sanction avec tous les demandeurs d'emploi que vous accompagnez qui s'apprêtent à signer un nouveau contrat d'engagement.</strong></p>
+            </div>
+        </div>
+
+        <div id="faq1" class="tab-content">
+            <h2>FAQ Générale</h2>
+            <div class="faq-section">
+                <div class="faq-question">Dois-je communiquer sur les sanctions en cas de non-respect des engagements peu importe la dominante de mon portefeuille d'accompagnement (Suivi, Guidé, Renforcé, Global...) ?</div>
+                <div class="faq-answer"><strong>OUI.</strong> Tous les demandeurs d'emploi, quelle que soit leur modalité d'accompagnement, sont concernés par cette information, dès lors qu'ils s'apprêtent à signer un contrat d'engagement. Cependant, les situations particulières de chaque demandeur d'emploi peuvent vous amener à adapter votre discours. Ex : inclure le risque de sanction lié au refus de trois ORE, si celle-ci a été définie.</div>
+            </div>
+
+            <div class="faq-section">
+                <div class="faq-question">Dois-je communiquer sur les sanctions en cas de non-respect des engagements auprès des bénéficiaires du RSA que j'accompagne ?</div>
+                <div class="faq-answer"><strong>OUI.</strong> Les bénéficiaires du RSA, s'ils sont suivis par un(e) conseiller(e) France Travail sont également concernés par cette information, dès lors qu'ils s'apprêtent à signer un contrat d'engagement. Certains freins à la compréhension tels qu'une mauvaise maîtrise du français peuvent vous amener à adapter votre discours pour qu'il soit compris et mémorisé. Une notice en Français Facile A Lire et A Comprendre est disponible dans le kit de documentation fourni dans le cadre de cette expérimentation.</div>
+            </div>
+
+            <div class="faq-section">
+                <div class="faq-question">Dois-je communiquer sur les sanctions en cas de non-respect des engagements auprès des demandeurs d'emploi en situation de handicap suivis par un(e) conseiller(e) Cap 'Emploi ?</div>
+                <div class="faq-answer"><strong>NON.</strong> Vous devez informer les demandeurs d'emploi en situation de handicap qui s'apprêtent à signer un contrat d'engagement des risques de sanction à France Travail seulement si ces derniers sont suivis par un(e) conseiller(e) France Travail. Certains freins à la compréhension tels qu'un handicap peuvent vous amener à adapter votre discours pour qu'il soit compris et mémorisé. Une notice en Français Facile A Lire et A Comprendre est disponible dans le kit de documentation fourni dans le cadre de cette expérimentation.</div>
+            </div>
+
+            <div class="faq-section">
+                <div class="faq-question">La communication sur les sanctions s'applique-t-elle aux demandeurs d'emploi suivis par les missions locales ?</div>
+                <div class="faq-answer"><strong>NON.</strong> Elle ne s'applique qu'aux demandeurs d'emploi inscrits et accompagnés par France Travail. L'expérimentation ne concerne donc pas les jeunes en missions locales.</div>
+            </div>
+        </div>
+
+        <div id="consignes" class="tab-content">
+            <h2>Consignes</h2>
+            <p>Après le partage des engagements tels que notés sur le contrat d'engagement et avant la signature du contrat d'engagement, prenez le temps pour expliquer (sans entrer dans les détails) :</p>
+            <ul>
+                <li>Comment et par qui est vérifié le respect des engagements du demandeur d'emploi,</li>
+                <li>Quelles situations peuvent conduire à une sanction et quels types de sanctions existent,</li>
+                <li>L'importance de la traçabilité des démarches et d'informer son conseiller en cas d'évolution de sa situation ou d'empêchement.</li>
+            </ul>
+
+            <div class="info-box">
+                <p>Vous êtes libre d'adapter votre manière de présenter ces informations selon votre aisance sur le sujet et la situation de la personne. Vous pouvez utiliser le script ci-dessous comme support à la discussion. Nous vous conseillons de le lire entièrement avec le demandeur d'emploi : il contient tout le nécessaire. Si vous vous sentez à l'aise, vous pouvez le reformuler, faire des ajouts et l'adapter avec vos propres mots.</p>
+            </div>
+
+            <div class="script-box">
+                <h3>Texte clé en main pour aborder les sanctions</h3>
+                <p><em>Ce texte contient les éléments essentiels à transmettre. Vous pouvez le lire tel quel ou le reformuler avec vos propres mots.</em></p>
+                
+                <p>Nous venons de voir ensemble les engagements que nous avons l'un envers l'autre.</p>
+                
+                <p>Pour votre parfaite information sachez que le non-respect de vos engagements peut donner lieu à des sanctions pouvant aller de l'action de remobilisation jusqu'à une radiation de 4 mois selon le manquement et/ou sa récurrence.</p>
+                
+                <p><strong>Deux grands types de situations peuvent donner lieu à sanction :</strong></p>
+                <ul>
+                    <li>Le non-respect des engagements ou actions inscrits dans votre contrat d'engagement,</li>
+                    <li>L'absence non justifiée à un rendez-vous ou à une prestation.</li>
+                </ul>
+                
+                <p><strong>(Pour les DE ayant une ORE)</strong> Nous avons défini ensemble une Offre Raisonnable d'Emploi. Vous devez accepter toute offre répondant aux critères définis. Si vous refusez à 2 reprises une ORE, vous risquez des sanctions pouvant aller jusqu'à la radiation.</p>
+                
+                <p>Le constat d'un manquement aux obligations peut se faire au fil de l'eau dans le cadre de l'accompagnement ou lors d'un contrôle aléatoire par notre plateforme de contrôle de recherche d'emploi.</p>
+                
+                <p>C'est pourquoi il est important que nous puissions tracer vos actions et que vous m'informiez des évolutions de votre situation et/ou de tout empêchement sur des démarches prévues ensemble.</p>
+                
+                <p>C'est dans cette optique de partage et de transparence que nous signons ce jour le contrat d'engagement. Il va nous permettre, d'une part, de partager une feuille de route de votre parcours de retour à l'emploi et d'autre part, de poser un cadre clair et sécurisé afin de développer une relation de confiance.</p>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>Important :</strong> Vérifiez que le demandeur d'emploi a bien compris les informations. Reformulez si nécessaire et répondez à ses questions.</p>
+            </div>
+        </div>
+
+        <div id="faq2" class="tab-content">
+            <h2>FAQ Pratique</h2>
+            <div class="faq-section">
+                <div class="faq-question">Dois-je rappeler les risques de sanction si le demandeur d'emploi que j'accompagne signe un nouveau contrat (suite à un changement d'adresse, de parcours, etc.) ?</div>
+                <div class="faq-answer"><strong>OUI.</strong> La signature d'un nouveau contrat signifie potentiellement que la situation du demandeur d'emploi a évolué. Plusieurs mois peuvent s'être écoulés depuis la première présentation des risques liés au non-respect des engagements. Il est donc possible qu'il les ait oubliés, et les efforts de recherche d'emploi attendus peuvent également avoir changé.</div>
+            </div>
+
+            <div class="faq-section">
+                <div class="faq-question">J'ai peur de ne pas assez bien connaître tous les types de sanctions et leurs changements récents pour les expliquer correctement aux demandeurs d'emploi. Que faire ?</div>
+                <div class="faq-answer">Si vous trouvez que vous manquez d'aisance pour expliquer le contrôle de la recherche d'emploi et les risques de sanction encourus, vous pouvez simplement lire la notice fournie dans ce guide. Nul besoin d'entrer dans les détails, celle-ci est suffisante.</div>
+            </div>
+
+            <div class="faq-section">
+                <div class="faq-question">Je crains que ce discours détériore la relation avec les demandeurs d'emploi que j'accompagne.</div>
+                <div class="faq-answer">Être transparent dès le début de l'accompagnement sur les engagements réciproques permet de poser un cadre clair et de construire une relation de confiance avec le demandeur d'emploi. Il n'est pas nécessaire d'entrer dans le détail du processus de contrôle si vous ne souhaitez pas évoquer votre propre rôle dans les signalements, par exemple. Vous restez libres de ne pas communiquer certaines informations si vous jugez que celles-ci pourraient vous mettre en difficulté.</div>
+            </div>
+        </div>
+
+        <!-- Informations de contact - toujours visibles -->
+        <div class="contact-info">
+            <h2>Informations de Contact</h2>
+            <p>Si vous avez d'autres questions au sujet de l'expérimentation ou des consignes transmises, vous pouvez écrire à <strong>experimentation_ced@ipp.eu</strong>.</p>
+            <p>L'équipe de recherche en charge de l'expérimentation vous répondra, et mettra à jour la liste des questions fréquentes.</p>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced tracking system
+        const trackingData = {
+            currentTab: 'contexte',
+            tabStartTime: Date.now(),
+            tabsViewed: ['contexte'],
+            firstTabViewed: 'contexte',
+            lastTabViewed: 'contexte',
+            scrollDepth: {},
+            tabSwitchCount: 0
+        };
+
+        // Track scroll depth for each tab
+        function trackScrollDepth() {
+            const currentTab = trackingData.currentTab;
+            const tabContent = document.getElementById(currentTab);
+            
+            if (!tabContent) return;
+            
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+            
+            const scrollPercentage = Math.round((scrollTop / (docHeight - windowHeight)) * 100);
+            
+            if (!trackingData.scrollDepth[currentTab] || scrollPercentage > trackingData.scrollDepth[currentTab]) {
+                trackingData.scrollDepth[currentTab] = scrollPercentage;
+                
+                if (scrollPercentage >= 25 && scrollPercentage < 50 && 
+                    (!trackingData.scrollDepth[currentTab + '_25'] || trackingData.scrollDepth[currentTab + '_25'] < 25)) {
+                    trackingData.scrollDepth[currentTab + '_25'] = 25;
+                    gtag('event', 'scroll_depth', {
+                        'event_category': 'Engagement',
+                        'event_label': currentTab,
+                        'scroll_percentage': 25,
+                        'tab_name': currentTab
+                    });
+                } else if (scrollPercentage >= 50 && scrollPercentage < 75 && 
+                           (!trackingData.scrollDepth[currentTab + '_50'] || trackingData.scrollDepth[currentTab + '_50'] < 50)) {
+                    trackingData.scrollDepth[currentTab + '_50'] = 50;
+                    gtag('event', 'scroll_depth', {
+                        'event_category': 'Engagement',
+                        'event_label': currentTab,
+                        'scroll_percentage': 50,
+                        'tab_name': currentTab
+                    });
+                } else if (scrollPercentage >= 75 && scrollPercentage < 100 && 
+                           (!trackingData.scrollDepth[currentTab + '_75'] || trackingData.scrollDepth[currentTab + '_75'] < 75)) {
+                    trackingData.scrollDepth[currentTab + '_75'] = 75;
+                    gtag('event', 'scroll_depth', {
+                        'event_category': 'Engagement',
+                        'event_label': currentTab,
+                        'scroll_percentage': 75,
+                        'tab_name': currentTab
+                    });
+                } else if (scrollPercentage >= 100 && 
+                           (!trackingData.scrollDepth[currentTab + '_100'] || trackingData.scrollDepth[currentTab + '_100'] < 100)) {
+                    trackingData.scrollDepth[currentTab + '_100'] = 100;
+                    gtag('event', 'scroll_depth', {
+                        'event_category': 'Engagement',
+                        'event_label': currentTab,
+                        'scroll_percentage': 100,
+                        'tab_name': currentTab
+                    });
+                }
+            }
+        }
+
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(trackScrollDepth, 100);
+        });
+
+        function showTab(tabName) {
+            const timeSpent = Math.round((Date.now() - trackingData.tabStartTime) / 1000);
+            
+            gtag('event', 'tab_time_spent', {
+                'event_category': 'Engagement',
+                'event_label': trackingData.currentTab,
+                'value': timeSpent,
+                'tab_name': trackingData.currentTab,
+                'time_seconds': timeSpent
+            });
+
+            gtag('event', 'tab_click', {
+                'event_category': 'Navigation',
+                'event_label': tabName,
+                'tab_name': tabName,
+                'from_tab': trackingData.currentTab
+            });
+
+            trackingData.currentTab = tabName;
+            trackingData.tabStartTime = Date.now();
+            trackingData.lastTabViewed = tabName;
+            trackingData.tabSwitchCount++;
+            
+            if (!trackingData.tabsViewed.includes(tabName)) {
+                trackingData.tabsViewed.push(tabName);
+                
+                gtag('event', 'unique_tabs_viewed', {
+                    'event_category': 'Navigation',
+                    'event_label': 'tab_count',
+                    'value': trackingData.tabsViewed.length,
+                    'tabs_viewed': trackingData.tabsViewed.join(',')
+                });
+            }
+
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            window.scrollTo(0, 0);
+        }
+
+        window.addEventListener('beforeunload', function() {
+            const finalTimeSpent = Math.round((Date.now() - trackingData.tabStartTime) / 1000);
+            
+            gtag('event', 'session_summary', {
+                'event_category': 'Session',
+                'event_label': 'summary',
+                'first_tab': trackingData.firstTabViewed,
+                'last_tab': trackingData.lastTabViewed,
+                'unique_tabs_count': trackingData.tabsViewed.length,
+                'tab_switches': trackingData.tabSwitchCount,
+                'tabs_viewed_list': trackingData.tabsViewed.join(',')
+            });
+            
+            gtag('event', 'tab_time_spent', {
+                'event_category': 'Engagement',
+                'event_label': trackingData.currentTab,
+                'value': finalTimeSpent,
+                'tab_name': trackingData.currentTab,
+                'time_seconds': finalTimeSpent
+            });
+        });
+
+        window.addEventListener('load', function() {
+            gtag('event', 'page_loaded', {
+                'event_category': 'Session',
+                'event_label': 'initial_load',
+                'first_tab': trackingData.firstTabViewed
+            });
+        });
+    </script>
+</body>
+</html>
